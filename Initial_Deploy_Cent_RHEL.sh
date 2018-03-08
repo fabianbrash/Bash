@@ -5,7 +5,7 @@
 nmcli con add type ethernet con-name ens192-prod ifname ens192 ip4 $1/24 gw4 $2 ipv4.dns "8.8.8.8"
 nmcli up ens192-prod
 sleep 5
-yum upgrade -y && yum group install "Development Tools" -y && yum install wget ntp vim firewalld epel-release open-vm-tools pciutils tree yum-utils -y
+yum upgrade -y && yum groupinstall "Development Tools" -y && yum install wget ntp vim firewalld epel-release open-vm-tools pciutils tree yum-utils -y
 sleep 15
 yum install -y openssh-server
 systemctl start vmtoolsd && systemctl enable vmtoolsd
