@@ -16,16 +16,16 @@ sleep 30
 yum upgrade -y
 
 #####Docker installation for CENTOS 7.x#####
-###Uncommnet if you would like docker ce installed
+###Uncommnet if you would like docker-ce installed
 #yum install -y yum-utils \
 #device-mapper-persistent-data \
 #lvm2
 
-#yum-config-manager \
+#yum-config-manager -y \
 #--add-repo \
 #https://download.docker.com/linux/centos/docker-ce.repo
 
 #yum install docker-ce -y
 #systemctl start docker && systemctl enable docker
 
-#REF: https://docs.docker.com/install/linux/docker-ce/centos/#set-up-the-repository
+#####Dccker centos install REF: https://docs.docker.com/install/linux/docker-ce/centos/#set-up-the-repository
