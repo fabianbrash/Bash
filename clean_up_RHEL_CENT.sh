@@ -32,7 +32,7 @@ unset HISTFILE
 
 #Finally we are going remove root users SSH history and then shutdown for template creation
 rm -rf ~root/.ssh/ #Do this for each user
-
+echo "Finished now you can run history -c and then sys-unconfig"
 #############Run the below 2 lines manually##############################################
 ##history –c
 ##sys-unconfig
