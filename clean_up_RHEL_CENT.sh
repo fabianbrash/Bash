@@ -21,7 +21,10 @@ cat /dev/null > /var/log/grubby
 
 #Next we are going to remove the old hardware rules and remove the UUID from the ifcfg scripts.
 rm -f /etc/udev/rules.d/70*
-sed –i”.bak” ‘/UUID/d’ /etc/sysconfig/network-scripts/ifcfg-ens192 #The device is specific please set appropriately
+
+##The below gave me issues so it's simply best to just blow it away and re-create on initial boot
+#sed –i”.bak” ‘/UUID/d’ /etc/sysconfig/network-scripts/ifcfg-ens192 #The device is specific please set appropriately
+rm -f /etc/sysconfig/network-scripts/ifcfg-ens192 ##again the name is specific please check first
 
 #We are then going to remove SSH host keys so that each new VM
 rm -f /etc/ssh/*key*
