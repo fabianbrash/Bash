@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #REF:http://everything-virtual.com/2016/05/06/creating-a-centos-7-2-vmware-gold-template/
-yum install -y yum-utils
+##yum install -y yum-utils
 
 systemctl stop rsyslog
 service auditd stop
