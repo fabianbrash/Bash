@@ -14,4 +14,5 @@ rm -f /etc/machine-id
 systemd-machine-id-setup
 
 
+##TODO
 ####Let's setup ssh keys, we know there are 2 users on the system
