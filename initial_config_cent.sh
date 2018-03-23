@@ -14,4 +14,4 @@ rm -f /etc/machine-id
 systemd-machine-id-setup
 
 
-####Let's setup ssh keys, we know there are 2 users on the system, root and saprime
+####Let's setup ssh keys, we know there are 2 users on the system
