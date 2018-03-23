@@ -29,3 +29,5 @@ chown -R user:user /home/user/.ssh
 cd /home/saprime && curl -LO http://serverIp/key.pub
 
 cat /home/saprime/key.pub >> /home/saprime/.ssh/authorized_keys
+
+###TODO set permission on authorized_keys file
