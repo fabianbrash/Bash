@@ -23,4 +23,9 @@ fi
 
 touch /home/user/.ssh/autherized_keys
 
+##We have to do this because we will be running as root
 chown -R user:user /home/user/.ssh
+
+cd /home/saprime && curl -LO http://serverIp/key.pub
+
+cat /home/saprime/key.pub >> /home/saprime/.ssh/authorized_keys
