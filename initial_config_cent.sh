@@ -16,3 +16,11 @@ systemd-machine-id-setup
 
 ##TODO
 ####Let's setup ssh keys, we know there are 2 users on the system
+if [ ! -d /home/user/.ssh ]
+ then
+     mkdir /home/user/.ssh
+fi
+
+touch /home/user/.ssh/autherized_keys
+
+chown -R user:user /home/user/.ssh
