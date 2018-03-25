@@ -25,6 +25,7 @@ systemd-machine-id-setup
 
 ##TODO
 ####Let's setup ssh keys, we know there are 2 users on the system
+#Replace user with the user you want to apply settings to
 if [ ! -d /home/user/.ssh ]
  then
      mkdir /home/user/.ssh
@@ -35,8 +36,8 @@ touch /home/user/.ssh/autherized_keys
 ##We have to do this because we will be running as root
 chown -R user:user /home/user/.ssh
 
-cd /home/saprime && curl -LO http://serverIp/key.pub
+cd /home/user && curl -LO http://serverIp/key.pub
 
-cat /home/saprime/key.pub >> /home/saprime/.ssh/authorized_keys
+cat /home/user/key.pub >> /home/user/.ssh/authorized_keys
 
 ###TODO set permission on authorized_keys file
