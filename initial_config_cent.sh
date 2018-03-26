@@ -46,3 +46,6 @@ chown -R user:user /home/user/.ssh
 ###set permission on authorized_keys file
 chmod 700 /home/user/.ssh
 chmod 600 /home/user/.ssh/authorized_keys
+
+###Cleanup time
+rm -rf /home/user/automated_temp
