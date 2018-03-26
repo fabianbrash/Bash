@@ -24,6 +24,11 @@ systemd-machine-id-setup
 
 
 ##TODO
+
+###Let's create some temp storage
+mkdir /home/user/automated_temp
+cd /home/user/automated_temp && curl -LO http://IPOFMINIO/bucket/file.pub
+
 ####Let's setup ssh keys, we know there are 2 users on the system
 #Replace user with the user you want to apply settings to
 if [ ! -d /home/user/.ssh ]
@@ -31,14 +36,12 @@ if [ ! -d /home/user/.ssh ]
      mkdir /home/user/.ssh
 fi
 
+##Let's create our file and then inject with current keys
 touch /home/user/.ssh/autherized_keys
+cat /home/user/key.pub >> /home/user/.ssh/authorized_keys
 
 ##We have to do this because we will be running as root
 chown -R user:user /home/user/.ssh
-
-cd /home/user && curl -LO http://serverIp/key.pub
-
-cat /home/user/key.pub >> /home/user/.ssh/authorized_keys
 
 ###set permission on authorized_keys file
 chmod 700 /home/user/.ssh
