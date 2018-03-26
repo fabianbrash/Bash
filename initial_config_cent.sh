@@ -40,4 +40,6 @@ cd /home/user && curl -LO http://serverIp/key.pub
 
 cat /home/user/key.pub >> /home/user/.ssh/authorized_keys
 
-###TODO set permission on authorized_keys file
+###set permission on authorized_keys file
+chmod 700 /home/user/.ssh
+chmod 600 /home/user/.ssh/authorized_keys
