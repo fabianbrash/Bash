@@ -6,7 +6,7 @@ service auditd stop
 
 rpm -q kernel
 sleep 10
-package-cleanup --oldkernels --count=1
+package-cleanup --oldkernels --count=1  ##Requires yum-utils
 yum clean all
 su -
 rm -rf /var/log/*-???????? /var/log/*.gz
