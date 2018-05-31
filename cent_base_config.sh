@@ -5,4 +5,6 @@
 
 #--------Perl is required for VMware guest customization----------------------#
 
-yum update -y && yum install yum-utils perl -y
+yum update -y && yum install yum-utils perl open-vm-tools -y
+
+systemctl enable --now vmtoolsd
