@@ -1,5 +1,16 @@
-#/bin/bash
+#!/bin/bash
 
+
+#-----------------------------------------------------------------------
+# Launch graylog stack, yes stack files would be better but I'm lazy
+#-----------------------------------------------------------------------
+
+#The below works on photonOS
+
+sysctl -w vm.max_map_count=262144
+
+
+docker run -d --name mongo mongo:3
 
 
 docker run --name elasticsearch \
