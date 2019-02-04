@@ -4,6 +4,13 @@
 ##open-vmtools should already be installed with ubuntu server
 ##I am removing the install of network-manager as I found it to be buggy
 
+#Make sure we are running as root
+if [ "$(id -u)" != "0" ]; then
+   echo "This script must be run as root"
+   exit 1
+fi
+
+
 apt update && apt upgrade -y
 sleep 15
 apt install openssh-server tree -y
