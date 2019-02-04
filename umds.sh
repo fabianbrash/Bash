@@ -13,6 +13,25 @@ firewall-cmd --reload
 #Store umds download store off / you can change this to wherever
 mkdir /umds-store
 
+##Create our answer file note I need to get the questions again
+echo "Creating UMDS answer file"
+
+cat > /tmp/answer << __EOF__
+/usr/local/vmware-umds
+yes
+no
+/umds-store
+
+__EOF__
+
+#Extract our perl script
+cd /tmp
+curl -OL https://s3.aws.amazon.com/umds.tgz
+tar -zxvf umds.tgz
+
+#Install umds
+cat /tmp/answer | /tmp/umds.pl EULA_AGREED=yes
+
 #Now we can start SimpleHttp 
 
 cd /umds-store
@@ -22,5 +41,3 @@ cd /umds-store
 # also http.server 8080 --bind 127.0.0.1 --directory /umds-store point to a specific location to serve our website
 python -m SimpleHttpServer 8080
 
-
-##TODO add logic to install umds from .pl script
