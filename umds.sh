@@ -1,6 +1,13 @@
 #!/bin/bash
 
 
+#Make sure we are root
+
+if [ "$(id -u)" != "0" ]; then
+   echo "This script must be run as root"
+   exit 1
+fi
+
 yum upgrade -y
 
 yum install perl psmisc vim epel-release python  -y
