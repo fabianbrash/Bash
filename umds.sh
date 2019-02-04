@@ -33,7 +33,7 @@ __EOF__
 
 #Extract our perl script
 cd /tmp
-curl -OL https://s3.aws.amazon.com/umds.tgz
+curl -OL https://s3.amazonaws.com/umds-6.7/VMware-UMDS-6.7.0-10164201.tar.gz
 tar -zxvf umds.tgz
 
 #Install umds
