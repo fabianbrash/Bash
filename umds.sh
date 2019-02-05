@@ -18,7 +18,7 @@ firewall-cmd --add-port=8080/tcp --permanent
 firewall-cmd --reload
 
 #Store umds download store off / you can change this to wherever
-mkdir /umds-store
+mkdir /umds-store67
 
 ##Create our answer file note I need to get the questions again
 echo "Creating UMDS answer file"
@@ -41,7 +41,7 @@ cat /tmp/answer | /tmp/umds.pl EULA_AGREED=yes
 
 #Now we can start SimpleHttp 
 
-cd /umds-store
+cd /umds-store67
 
 #Please note in python3 this has been renamed to http.server so the below command becomes
 # python -m http.server 8080 or python -m http.server 8080 --bind 127.0.0.1
