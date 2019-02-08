@@ -27,7 +27,7 @@ cat > /tmp/answer << __EOF__
 /usr/local/vmware-umds
 yes
 no
-/umds-store
+/umds-store67
 
 __EOF__
 
