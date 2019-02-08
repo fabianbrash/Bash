@@ -37,7 +37,7 @@ curl -OL https://s3.amazonaws.com/umds-6.7/VMware-UMDS-6.7.0-10164201.tar.gz
 tar -zxvf umds.tgz
 
 #Install umds
-cat /tmp/answer | /tmp/umds.pl EULA_AGREED=yes
+cat /tmp/answer | /tmp/vmware-umds-distrib/vmware-install.pl EULA_AGREED=yes
 
 #Now we can start SimpleHttp 
 
