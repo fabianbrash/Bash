@@ -45,6 +45,12 @@ cd /usr/local/vmware-umds/bin
 ./vmware-umds -G
 ./vmware-umds -D
 
+###The certificate issue note this is to have been fixed in 6.5U2 
+##REF:https://kb.vmware.com/s/article/53059?lang=en_US
+
+mv /usr/local/vmware-umds/lib/libcurl.so.4 /usr/local/vmware-umds/lib/libcurl.so.4.backup
+ln -s /usr/lib64/libcurl.so.4 /usr/local/vmware-umds/lib/libcurl.so.4
+
 #Now we can start SimpleHttp 
 
 cd /umds-store67
@@ -52,5 +58,5 @@ cd /umds-store67
 #Please note in python3 this has been renamed to http.server so the below command becomes
 # python -m http.server 8080 or python -m http.server 8080 --bind 127.0.0.1
 # also http.server 8080 --bind 127.0.0.1 --directory /umds-store point to a specific location to serve our website
-python -m SimpleHttpServer 8080
+python -m SimpleHTTPServer 8080
 
