@@ -39,17 +39,18 @@ tar -zxvf VMware-UMDS-6.7.0-10164201.tar.gz
 #Install umds
 cat /tmp/answer | /tmp/vmware-umds-distrib/vmware-install.pl EULA_AGREED=yes
 
+###The certificate issue note this is to have been fixed in 6.5U2 
+##REF:https://kb.vmware.com/s/article/53059?lang=en_US
+
+mv /usr/local/vmware-umds/lib/libcurl.so.4 /usr/local/vmware-umds/lib/libcurl.so.4.backup
+ln -s /usr/lib64/libcurl.so.4 /usr/local/vmware-umds/lib/libcurl.so.4
+
 ##Let's see what patches we are going to download and then download them
 
 cd /usr/local/vmware-umds/bin
 ./vmware-umds -G
 ./vmware-umds -D
 
-###The certificate issue note this is to have been fixed in 6.5U2 
-##REF:https://kb.vmware.com/s/article/53059?lang=en_US
-
-mv /usr/local/vmware-umds/lib/libcurl.so.4 /usr/local/vmware-umds/lib/libcurl.so.4.backup
-ln -s /usr/lib64/libcurl.so.4 /usr/local/vmware-umds/lib/libcurl.so.4
 
 #Now we can start SimpleHttp 
 
