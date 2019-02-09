@@ -34,10 +34,16 @@ __EOF__
 #Extract our perl script
 cd /tmp
 curl -OL https://s3.amazonaws.com/umds-6.7/VMware-UMDS-6.7.0-10164201.tar.gz
-tar -zxvf umds.tgz
+tar -zxvf VMware-UMDS-6.7.0-10164201.tar.gz
 
 #Install umds
 cat /tmp/answer | /tmp/vmware-umds-distrib/vmware-install.pl EULA_AGREED=yes
+
+##Let's see what patches we are going to download and then download them
+
+cd /usr/local/vmware-umds/bin
+./vmware-umds -G
+./vmware-umds -D
 
 #Now we can start SimpleHttp 
 
