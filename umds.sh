@@ -73,6 +73,7 @@ cd /usr/local/vmware-umds/bin
 ./vmware-umds -G
 sleep 15
 echo "Now Go get some coffee..."
+sleep 10
 ./vmware-umds -D
 
 
