@@ -71,6 +71,8 @@ ln -s /usr/lib64/libcurl.so.4 /usr/local/vmware-umds/lib/libcurl.so.4
 
 cd /usr/local/vmware-umds/bin
 ./vmware-umds -G
+sleep 15
+eco "Now Go get some coffee..."
 ./vmware-umds -D
 
 
@@ -81,5 +83,5 @@ cd $THEPATH
 #Please note in python3 this has been renamed to http.server so the below command becomes
 # python -m http.server 8080 or python -m http.server 8080 --bind 127.0.0.1
 # also http.server 8080 --bind 127.0.0.1 --directory /umds-store point to a specific location to serve our website
-python -m SimpleHTTPServer 8080
+python -m SimpleHTTPServer $THEPORT
 
