@@ -1,6 +1,10 @@
 #!/bin/bash
 
 
+##USAGE:    ./umds.sh PORT PATH
+##EXAMPLE:  ./umds.sh 80 /usr/local/share
+
+
 #Make sure we are root
 
 if [ "$(id -u)" != "0" ]; then
@@ -8,17 +12,35 @@ if [ "$(id -u)" != "0" ]; then
    exit 1
 fi
 
+
+DEFAULTPORT=8080
+DEFAULTPATH=/umds-store67
+
+THEPORT=$1
+THEPATH=$2
+
+if [ -z $1 ]
+   then
+        THEPORT=$DEFAULTPORT
+fi
+
+if [ -z $2 ]
+   then
+        THEPATH=$DEFAULTPATH
+fi
+
+
 yum upgrade -y
 
 yum install perl psmisc vim epel-release python  -y
 
-# Instead of Apache we can use the simple web server python provides
+# Let's open up our port
 
-firewall-cmd --add-port=8080/tcp --permanent
+firewall-cmd --add-port=$THEPORT/tcp --permanent
 firewall-cmd --reload
 
 #Store umds download store off / you can change this to wherever
-mkdir /umds-store67
+mkdir $THEPATH
 
 ##Create our answer file note I need to get the questions again
 echo "Creating UMDS answer file"
@@ -27,7 +49,7 @@ cat > /tmp/answer << __EOF__
 /usr/local/vmware-umds
 yes
 no
-/umds-store67
+$THEPATH
 
 __EOF__
 
@@ -52,9 +74,9 @@ cd /usr/local/vmware-umds/bin
 ./vmware-umds -D
 
 
-#Now we can start SimpleHttp 
+#Now we can start SimpleHTTPServer 
 
-cd /umds-store67
+cd $THEPATH
 
 #Please note in python3 this has been renamed to http.server so the below command becomes
 # python -m http.server 8080 or python -m http.server 8080 --bind 127.0.0.1
