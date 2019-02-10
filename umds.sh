@@ -72,7 +72,7 @@ ln -s /usr/lib64/libcurl.so.4 /usr/local/vmware-umds/lib/libcurl.so.4
 cd /usr/local/vmware-umds/bin
 ./vmware-umds -G
 sleep 15
-eco "Now Go get some coffee..."
+echo "Now Go get some coffee..."
 ./vmware-umds -D
 
 
