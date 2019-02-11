@@ -1,8 +1,8 @@
 #!/bin/bash
 
 
-##USAGE:    ./umds.sh PORT PATH
-##EXAMPLE:  ./umds.sh 80 /usr/local/share
+##.USAGE:    ./umds.sh PORT PATH
+##.EXAMPLE:  ./umds.sh 80 /usr/local/share
 
 
 #Make sure we are root
