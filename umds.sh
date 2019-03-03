@@ -32,7 +32,7 @@ fi
 
 yum upgrade -y
 
-yum install perl psmisc vim epel-release python  -y
+yum install perl psmisc vim epel-release python yum-utils -y
 
 # Let's open up our port
 
