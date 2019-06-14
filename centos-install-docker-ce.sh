@@ -19,3 +19,5 @@ yum install -y docker-ce
 systemctl enable docker
 
 systemctl start docker
+
+docker version
