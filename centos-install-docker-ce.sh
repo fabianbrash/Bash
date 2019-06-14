@@ -20,6 +20,9 @@ systemctl enable docker
 
 systemctl start docker
 
+##Add user to the docker group so we don't have to sudo all the time, note logout is required for this to take effect
+usermod -aG docker $1
+
 ##Add Firewall Rules for swarm note this assumes that the default zone is public
 ##Comment out if you won't be using swarm
 
