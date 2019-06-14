@@ -20,4 +20,14 @@ systemctl enable docker
 
 systemctl start docker
 
+##Add Firewall Rules for swarm note this assumes that the default zone is public
+##Comment out if you won't be using swarm
+
+firewall-cmd --add-port=2376/tcp --permanent --zone=public
+firewall-cmd --add-port=2377/tcp --permanent --zone=public
+firewall-cmd --add-port=7946/tcp --permanent --zone=public
+firewall-cmd --add-port=7946/udp --permanent --zone=public
+firewall-cmd --add-port=4789/udp --permanent --zone=public
+firewall-cmd --reload
+
 docker version
