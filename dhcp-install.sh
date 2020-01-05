@@ -12,10 +12,6 @@ yum install -y dhcp-4.2.5
 
 cp /usr/share/doc/dhcp-4.2.5/dhcpd.conf.example /etc/dhcp/dhcpd.conf
 
-
-echo "Please head on over to /etc/sysconfig/dhcpd and edit the HDCPDARGS variable to the name of your interface ex eth0"
-
-
 ##If you are running firewalld uncomment the below lines
 
 ##allow firewall for dhcp ####
@@ -24,4 +20,5 @@ echo "Please head on over to /etc/sysconfig/dhcpd and edit the HDCPDARGS variabl
 
 cat /var/log/messages
 
+#this should generate an error until you configure correctly /etc/dhcp/dhcpd.conf
 systemctl restart dhcpd
