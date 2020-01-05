@@ -20,3 +20,5 @@ echo "Please head on over to /etc/sysconfig/dhcpd and edit the HDCPDARGS variabl
 ##allow firewall for dhcp ####
 #firewall-cmd --permanent --zone=public --add-service=dhcp 
 #firewall-cmd --reload
+
+systemctl restart dhcpd
