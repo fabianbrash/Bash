@@ -7,6 +7,7 @@ if [ "$(id -u)" != "0" ]; then
    exit 1
 fi
 
+yum upgrade -y
 yum install -y dhcp-4.2.5
 
 cp /usr/share/doc/dhcp-4.2.5/dhcpd.conf.example /etc/dhcp/dhcpd.conf
