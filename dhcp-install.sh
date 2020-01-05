@@ -13,3 +13,10 @@ cp /usr/share/doc/dhcp-4.2.5/dhcpd.conf.example /etc/dhcp/dhcpd.conf
 
 
 echo "Please head on over to /etc/sysconfig/dhcpd and edit the HDCPDARGS variable to the name of your interface ex eth0"
+
+
+##If you are running firewalld uncomment the below lines
+
+##allow firewall for dhcp ####
+#firewall-cmd --permanent --zone=public --add-service=dhcp 
+#firewall-cmd --reload
