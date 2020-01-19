@@ -16,8 +16,10 @@ fi
 yum upgrade -y && yum groupinstall "Development Tools" -y && yum install wget vim epel-release ntp open-vm-tools pciutils tree yum-utils net-tools -y
 sleep 15
 #yum install -y openssh-server
-systemctl start vmtoolsd && systemctl enable vmtoolsd
-systemctl start ntpd && systemctl enable ntpd
+rm -f /etc/machine-id
+systemd-machine-id-setup
+systemctl enable --now vmtoolsd
+systemctl enable --now ntpd
 firewall-cmd --add-service=ntp --permanent
 firewall-cmd --reload
 sleep 15
