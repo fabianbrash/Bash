@@ -38,6 +38,9 @@ rm -f /etc/ssh/*key*
 rm -f ~root/.bash_history #Remember to remove for each user on the system
 unset HISTFILE
 
+#remove machine id so we have a unique ID when VM boots up
+rm /etc/machine-id
+
 #Finally we are going remove root users SSH history and then shutdown for template creation
 rm -rf ~root/.ssh/ #Do this for each user
 echo "Finished now you can run history -c and then sys-unconfig"
