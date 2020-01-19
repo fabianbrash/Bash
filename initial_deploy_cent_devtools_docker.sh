@@ -13,13 +13,13 @@ fi
 #nmcli con up ens192-prod
 #sleep 5
 
-yum upgrade -y && yum groupinstall "Development Tools" -y && yum install wget vim epel-release open-vm-tools pciutils tree yum-utils net-tools -y
+yum upgrade -y && yum groupinstall "Development Tools" -y && yum install wget vim epel-release ntp open-vm-tools pciutils tree yum-utils net-tools -y
 sleep 15
 #yum install -y openssh-server
 systemctl start vmtoolsd && systemctl enable vmtoolsd
-#systemctl start ntpd && systemctl enable ntpd
-#firewall-cmd --add-service=ntp --permanent
-#firewall-cmd --reload
+systemctl start ntpd && systemctl enable ntpd
+firewall-cmd --add-service=ntp --permanent
+firewall-cmd --reload
 sleep 15
 yum upgrade -y
 
