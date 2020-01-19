@@ -18,7 +18,7 @@ yum upgrade -y && yum install wget vim epel-release ntp open-vm-tools pciutils t
 sleep 15
 echo "TASK[2] enabling services..."
 systemctl enable --now vmtoolsd
-systemctl start ntpd && systemctl enable ntpd
+systemctl enable --now ntpd
 echo "TASK[3] enabling firewall rules..."
 firewall-cmd --add-service=ntp --permanent
 firewall-cmd --reload
