@@ -17,6 +17,8 @@ echo "TASK[1] updating system and installing packages..."
 yum upgrade -y && yum install wget vim epel-release ntp open-vm-tools pciutils tree yum-utils net-tools git -y
 sleep 15
 echo "TASK[2] enabling services..."
+rm -f /etc/machine-id
+systemd-machine-id-setup
 systemctl enable --now vmtoolsd
 systemctl enable --now ntpd
 echo "TASK[3] enabling firewall rules..."
