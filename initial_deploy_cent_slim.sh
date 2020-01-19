@@ -13,12 +13,15 @@ fi
 #nmcli con up ens192-prod
 #sleep 5
 
+echo "TASK[1] updating system and installing packages..."
 yum upgrade -y && yum install wget vim epel-release ntp open-vm-tools pciutils tree yum-utils net-tools -y
 sleep 15
-#yum install -y openssh-server
-systemctl start vmtoolsd && systemctl enable vmtoolsd
+echo "TASK[2] enabling services..."
+systemctl enable --now vmtoolsd
 systemctl start ntpd && systemctl enable ntpd
+echo "TASK[3] enabling firewall rules..."
 firewall-cmd --add-service=ntp --permanent
 firewall-cmd --reload
 sleep 15
+echo "TASK[4] checking for updates 1 more time..."
 yum upgrade -y
