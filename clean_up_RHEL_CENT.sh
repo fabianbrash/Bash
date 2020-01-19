@@ -1,12 +1,5 @@
 #!/bin/bash
 
-#Make sure we are root
-
-if [ "$(id -u)" != "0" ]; then
-   echo "This script must be run as root"
-   exit 1
-fi
-
 #REF:http://everything-virtual.com/2016/05/06/creating-a-centos-7-2-vmware-gold-template/
 systemctl stop rsyslog
 service auditd stop
