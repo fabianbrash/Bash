@@ -14,7 +14,7 @@ fi
 #sleep 5
 
 echo "TASK[1] updating system and installing packages..."
-yum upgrade -y && yum install wget vim epel-release ntp open-vm-tools pciutils tree yum-utils net-tools git -y
+yum upgrade -y && yum install wget vim epel-release ntp open-vm-tools pciutils tree yum-utils net-tools bind-utils git -y
 sleep 15
 echo "TASK[2] enabling services..."
 rm -f /etc/machine-id
