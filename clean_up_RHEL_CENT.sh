@@ -7,6 +7,7 @@ service auditd stop
 rpm -q kernel
 sleep 10
 package-cleanup --oldkernels --count=1  ##Requires yum-utils
+#dnf remove $(dnf repoquery --installonly --latest-limit=-2 -q) ##CentOS8.x
 yum clean all
 su -
 rm -rf /var/log/*-???????? /var/log/*.gz
