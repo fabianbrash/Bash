@@ -1,4 +1,6 @@
 #!/bin/bash
+
+#REF:https://infiniteloop.io/vmware-template-ubuntu-18-04-3-lts/
 echo Update system
 apt update -y && apt upgrade -y
 echo Stop rsyslog
