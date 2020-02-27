@@ -1,5 +1,12 @@
 #!/bin/bash
 
+#Make sure we are root
+
+if [ "$(id -u)" != "0" ]; then
+   echo "This script must be run as root"
+   exit 1
+fi
+
 #REF:https://infiniteloop.io/vmware-template-ubuntu-18-04-3-lts/
 echo Update system
 apt update -y && apt upgrade -y
