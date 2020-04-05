@@ -16,4 +16,4 @@ yum install -y kubelet kubeadm kubectl --disableexcludes=kubernetes
 
 yum install -y yum-plugin-versionlock
 
-#systemctl enable --now kubelet
+systemctl enable --now kubelet
