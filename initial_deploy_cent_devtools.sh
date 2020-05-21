@@ -13,7 +13,7 @@ fi
 #nmcli con up ens192-prod
 #sleep 5
 
-yum upgrade -y && yum groupinstall "Development Tools" -y && yum install wget vim epel-release ntp open-vm-tools pciutils tree yum-utils bind-utils net-tools -y
+yum upgrade -y && yum groupinstall "Development Tools" -y && yum install wget vim yum-plugin-versionlock epel-release ntp open-vm-tools pciutils tree yum-utils bind-utils net-tools -y
 sleep 15
 #yum install -y openssh-server
 rm -f /etc/machine-id
