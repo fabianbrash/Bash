@@ -25,6 +25,6 @@ mv cfssl cfssljson /usr/local/bin
 
 sleep 5
 
-cfssl version
+which cfssl
 
-cfssljson -version
+which cfssljson
