@@ -11,7 +11,7 @@ fi
 #Just in case we don't have it
 yum install -y curl
 
-
+##As long as this link is good
 curl -LO https://github.com/cloudflare/cfssl/releases/download/v1.4.1/cfssl_1.4.1_linux_amd64
 curl -LO https://github.com/cloudflare/cfssl/releases/download/v1.4.1/cfssljson_1.4.1_linux_amd64
 
