@@ -10,7 +10,14 @@ fi
 yum upgrade -y
 yum install -y dhcp-4.2.5
 
-cp /usr/share/doc/dhcp-4.2.5/dhcpd.conf.example /etc/dhcp/dhcpd.conf
+#cp /usr/share/doc/dhcp-4.2.5/dhcpd.conf.example /etc/dhcp/dhcpd.conf
+
+## just in case
+yum install -y curl
+
+curl -LO https://containerblobs.blob.core.windows.net/containerdata/dhcpd.conf
+
+cp dhcpd.conf /etc/dhcp/
 
 ##If you are running firewalld uncomment the below lines
 
