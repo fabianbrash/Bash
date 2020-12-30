@@ -18,3 +18,6 @@ vncserver
 
 ##Kill vnc server
 #vncserver -kill :1 (not :1 if that's the one you want to kill vnc can have multiple sessions i.e. :2, :3
+
+#Backup our config
+cp ~/.vnc/xstartup ~/.vnc/xstartup.bak
