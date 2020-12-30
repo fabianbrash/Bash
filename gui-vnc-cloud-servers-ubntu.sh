@@ -23,6 +23,7 @@ vncserver
 cp ~/.vnc/xstartup ~/.vnc/xstartup.bak
 
 #Let's use a heredoc to overwrite our document
+#Note I might have to move this out, since we are sudo which file is being updated?
 cat > ~/.vnc/xstartup <<EOF
 #!/bin/sh
 unset DBUS_SESSION_BUS_ADDRESS
