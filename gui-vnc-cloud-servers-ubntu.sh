@@ -12,3 +12,9 @@ fi
 apt install -y tightvncserver xfonts-75dpi xfonts-100dpi gsfonts-x11
 
 apt install -y ubuntu-mate-core
+
+#Startup vnc server
+vncserver
+
+##Kill vnc server
+#vncserver -kill :1 (not :1 if that's the one you want to kill vnc can have multiple sessions i.e. :2, :3
