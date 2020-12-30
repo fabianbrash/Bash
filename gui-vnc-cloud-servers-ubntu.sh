@@ -1,5 +1,7 @@
 #!/bin/bash
 
+#REF:https://www.suhendro.com/2019/04/ubuntu-cloud-desktop-adding-gui-to-your-cloud-server-instance/
+
 #Make sure we are root
 
 if [ "$(id -u)" != "0" ]; then
