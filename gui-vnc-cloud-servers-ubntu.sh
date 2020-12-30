@@ -22,6 +22,19 @@ vncserver
 #Backup our config
 cp ~/.vnc/xstartup ~/.vnc/xstartup.bak
 
+#Let's use a heredoc to overwrite our document
+cat > ~/.vnc/xstartup <<EOF
+#!/bin/sh
+unset DBUS_SESSION_BUS_ADDRESS
+[ -x /etc/vnc/xstartup ] && exec /etc/vnc/xstartup
+[ -r $HOME/.Xresources ] && xrdb $HOME/.Xresources
+xsetroot -solid grey
+vncconfig -iconic &
+x-terminal-emulator -geometry 80x24+10+10 -ls -title "$VNCDESKTOP Desktop" &
+x-window-manager &
+mate-session &
+EOF
+
 ##This is the best editor I found to work under vnc, atom and vscode don't
 cd ~\Downloads
 curl -LO https://github.com/adobe/brackets/releases/download/release-1.14.1/Brackets.Release.1.14.1.64-bit.deb
