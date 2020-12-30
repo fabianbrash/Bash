@@ -21,3 +21,10 @@ vncserver
 
 #Backup our config
 cp ~/.vnc/xstartup ~/.vnc/xstartup.bak
+
+##This is the best editor I found to work under vnc, atom and vscode don't
+cd ~\Downloads
+curl -LO https://github.com/adobe/brackets/releases/download/release-1.14.1/Brackets.Release.1.14.1.64-bit.deb
+sleep 5
+
+dpkg -i Brackets.Release.1.14.1.64-bit.deb
