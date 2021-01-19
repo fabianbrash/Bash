@@ -1,5 +1,12 @@
 #!/bin/bash
 
+#Make sure we are root
+
+if [ "$(id -u)" != "0" ]; then
+   echo "This script must be run as root"
+   exit 1
+fi
+
 
 apt update
 apt-get install \
