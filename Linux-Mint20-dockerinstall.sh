@@ -1,18 +1,26 @@
 #!/bin/bash
 
-sudo apt-get update
+#Make sure we are root
 
-sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+if [ "$(id -u)" != "0" ]; then
+   echo "This script must be run as root"
+   exit 1
+fi
 
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 
-sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(. /etc/os-release; echo "$UBUNTU_CODENAME") stable"
+apt-get update
 
-sudo apt-get update
+apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common
 
-sudo apt-get -y install docker-ce
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
 
-sudo usermod -aG docker $USER
+add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(. /etc/os-release; echo "$UBUNTU_CODENAME") stable"
+
+apt-get update
+
+apt-get -y install docker-ce
+
+usermod -aG docker $USER
 
 docker --version
 
