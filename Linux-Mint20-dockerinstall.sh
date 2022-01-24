@@ -10,7 +10,7 @@ fi
 
 apt-get update
 
-apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+apt-get install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common
 
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
 
@@ -24,7 +24,9 @@ usermod -aG docker $1
 
 docker --version
 
-sleep 5
+cat /etc/group
+
+sleep 6
 
 reboot now
 
