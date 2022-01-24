@@ -20,7 +20,11 @@ apt-get update
 
 apt-get -y install docker-ce
 
-usermod -aG docker $USER
+usermod -aG docker $1
 
 docker --version
+
+sleep 5
+
+reboot now
 
