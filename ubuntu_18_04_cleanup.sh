@@ -35,6 +35,7 @@ echo Clean cloud-init logs
 cloud-init clean --logs
 echo Clear machine-id
 cp /dev/null /etc/machine-id
+cp /dev/null /var/lib/dbus/machine-id
 echo Remove unwanted MOTD detail
 chmod -x /etc/update-motd.d/10-help-text
 chmod -x /etc/update-motd.d/50-motd-news
