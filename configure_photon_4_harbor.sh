@@ -4,7 +4,7 @@
 
 echo "[CHECKING FOR UPDATES AND PATCHING SYSTEM]"
 sleep 10
-tdnf check-updates && tdnf upgrade -y
+tdnf check-update && tdnf upgrade -y
 
 echo "[INSTALLING TAR AND UNZIP]"
 sleep 10
