@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Note this script is to be used on a photon deployment via the ISO image and not the OVA
+
 # Colors
 
 GREEN='\033[0;32m'
