@@ -23,7 +23,7 @@ mkdir -p /opt/vmware
 cd /root/harbor-files
 curl -LO https://github.com/goharbor/harbor/releases/download/v2.5.0/harbor-online-installer-v2.5.0.tgz
 tar -xzvf harbor-online-installer-v2.5.0.tgz
-cp -p harbor /opt/vmware/
+cp -rp /root/harbor-files/harbor /opt/vmware/
 
 
 echo "[FIXING NETWORK CONFIG ISSUE]"
@@ -40,6 +40,11 @@ sed -i 's/PermitRootLogin no/PermitRootLogin yes/g' /etc/ssh/sshd_config
 echo "[ENABLING DOCKER]"
 sleep 10
 systemctl enable docker
+
+echo "[CLEANING UP]"
+sleep 10
+rm -rf /root/harbor-files
+sleep 5
 
 echo "[REBOOTING...]"
 sleep 15
