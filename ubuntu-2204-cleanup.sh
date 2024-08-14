@@ -1,6 +1,11 @@
 #!/bin/bash
 
-apt update && apt -y upgrade && apt -y autoremove && apt clean
+# Before cleaning up make sure open-vm-tools and bzip is installed
+apt update && \
+apt -y upgrade && \
+apt install -y open-vm-tools bzip2 \
+apt -y autoremove && \
+apt clean
 
 # Delete any user(s) you don’t want in the final template
 userdel -r ubuntu
