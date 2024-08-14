@@ -9,7 +9,7 @@ userdel -r ubuntu
 truncate -s0 /etc/hostname
 hostnamectl set-hostname localhost
 
-# Remove netplan file(s)
+# Remove netplan file(s) if it exists
 rm /etc/netplan/50-cloud-init.yaml
 
 # Clear the machine-id
