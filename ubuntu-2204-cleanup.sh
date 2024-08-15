@@ -24,7 +24,14 @@ rm /var/lib/dbus/machine-id
 ln -s /etc/machine-id /var/lib/dbus/machine-id
 
 # 
-cloud-init clean
+echo '> Cleaning cloud-init'
+#rm -rf /etc/netplan/00-installer-config.yaml
+rm -rf /etc/cloud/cloud.cfg.d/subiquity-disable-cloudinit-networking.cfg
+rm -rf /etc/cloud/cloud.cfg.d/99-installer.cfg
+rm -rf /etc/cloud/cloud.cfg.d/curtin-preserve-sources.cfg
+echo 'datasource_list: [ VMware, NoCloud, ConfigDrive ]' | tee /etc/cloud/cloud.cfg.d/90_dpkg.cfg
+/usr/bin/cloud-init clean
+#cloud-init clean
 
 # Disable the Password for root
 
