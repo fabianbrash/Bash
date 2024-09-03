@@ -25,7 +25,7 @@ ln -s /etc/machine-id /var/lib/dbus/machine-id
 
 # 
 echo '> Cleaning cloud-init'
-#rm -rf /etc/netplan/00-installer-config.yaml
+rm -rf /etc/netplan/00-installer-config.yaml
 rm -rf /etc/cloud/cloud.cfg.d/subiquity-disable-cloudinit-networking.cfg
 rm -rf /etc/cloud/cloud.cfg.d/99-installer.cfg
 rm -rf /etc/cloud/cloud.cfg.d/curtin-preserve-sources.cfg
