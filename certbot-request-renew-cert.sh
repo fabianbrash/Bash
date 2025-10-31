@@ -12,4 +12,4 @@ sudo certbot certonly -d "*.mydomain.net" --manual --preferred-challenges dns --
 certbot certonly -d "*.mydomain.net" --manual --preferred-challenges dns --agree-tos -m me@me.com \
 --logs-dir ./logs \
 --config-dir ./config \
---work-dir ./work \
+--work-dir ./work
