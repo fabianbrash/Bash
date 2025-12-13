@@ -7,7 +7,7 @@ apt-get upgrade -y
 
 # --- 2. Package Installation ---
 # Equivalent to: packages: [curl, wget, bzip2, policycoreutils]
-apt-get install -y curl wget bzip2 policycoreutils
+apt-get install -y curl wget bzip2 policycoreutils screenfetch
 
 # --- 3. User Creation and Configuration (User 'ubuntu') ---
 
