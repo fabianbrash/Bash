@@ -1,5 +1,13 @@
 #!/bin/bash
 
+
+#Make sure we are root
+
+if [ "$(id -u)" != "0" ]; then
+   echo "This script must be run as root"
+   exit 1
+fi
+
 # --- 1. System Update ---
 # Equivalent to: package_upgrade: true
 apt-get update
@@ -58,3 +66,8 @@ fi
 systemctl restart sshd
 
 echo "Startup script execution complete."
+
+
+# Reboot the system
+
+reboot now
