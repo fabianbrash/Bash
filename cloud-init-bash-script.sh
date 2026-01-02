@@ -15,7 +15,7 @@ apt-get upgrade -y
 
 # --- 2. Package Installation ---
 # Equivalent to: packages: [curl, wget, bzip2, policycoreutils]
-apt-get install -y curl wget bzip2 policycoreutils screenfetch
+apt-get install -y curl wget bzip2 policycoreutils screenfetch tree s-tui
 
 # --- 3. User Creation and Configuration (User 'ubuntu') ---
 
@@ -66,6 +66,14 @@ fi
 systemctl restart sshd
 
 echo "Startup script execution complete."
+
+### Install Viddy
+
+wget -O viddy.tar.gz https://github.com/sachaos/viddy/releases/download/v1.3.0/viddy-v1.3.0-linux-x86_64.tar.gz && tar xvf viddy.tar.gz && mv viddy /usr/local/bin
+
+### Install kdash
+
+curl https://raw.githubusercontent.com/kdash-rs/kdash/main/deployment/getLatest.sh | bash
 
 
 # Reboot the system
