@@ -13,7 +13,7 @@ dnf install -y curl wget fail2ban firewalld dnf-automatic
 systemctl enable --now firewalld
 systemctl enable --now fail2ban
 
----
+#---
 
 echo "--- 2. Creating User: alma1 ---"
 # Changed user to alma1 to match your password lock command
@@ -29,7 +29,7 @@ echo "$NEW_USER ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/90-$NEW_USER-user
 # Disable password login for the user
 passwd -l "$NEW_USER"
 
----
+#---
 
 echo "--- 3. Configuring SSH Keys ---"
 USER_HOME="/home/$NEW_USER"
@@ -49,7 +49,7 @@ chmod 700 "$SSH_DIR"
 chmod 600 "$SSH_DIR/authorized_keys"
 chown -R "$NEW_USER":"$NEW_USER" "$SSH_DIR"
 
----
+#---
 
 echo "--- 4. Hardening SSH Configuration ---"
 # AlmaLinux/RHEL usually has these set, but this ensures they are locked down
@@ -59,7 +59,7 @@ sed -i 's/^#\?MaxAuthTries.*/MaxAuthTries 3/' /etc/ssh/sshd_config
 
 systemctl restart sshd
 
----
+#---
 
 echo "--- 5. Configuring Firewall (firewalld) ---"
 # AlmaLinux uses firewalld instead of UFW
@@ -67,7 +67,7 @@ firewall-cmd --permanent --add-service=ssh
 firewall-cmd --set-default-zone=drop
 firewall-cmd --reload
 
----
+#---
 
 echo "--- 6. Installing Custom Tools (viddy) ---"
 cd /tmp
