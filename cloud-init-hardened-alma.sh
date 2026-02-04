@@ -7,7 +7,7 @@ echo "--- 1. Updating and Installing Packages ---"
 # Install EPEL repository (needed for fail2ban and other community tools)
 dnf install -y epel-release
 dnf update -y
-dnf install -y curl wget fail2ban firewalld dnf-automatic
+dnf install -y curl wget tar fail2ban firewalld dnf-automatic
 
 # Start and enable services
 systemctl enable --now firewalld
