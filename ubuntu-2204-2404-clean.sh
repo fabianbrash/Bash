@@ -1,5 +1,10 @@
 #!/bin/bash
 
+## AM I root
+if [[ $EUID -ne 0 ]]; then
+   echo "This script must be run as root. Try: sudo $0"
+   exit 1
+fi
 # --- 1. System Updates & Required Packages ---
 # Added cloud-guest-utils so the partition can auto-expand on first boot
 apt update && apt -y upgrade
