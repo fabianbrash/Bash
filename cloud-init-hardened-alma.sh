@@ -61,10 +61,28 @@ systemctl restart sshd
 
 #---
 
-echo "--- 5. Configuring Firewall (firewalld) ---"
+#echo "--- 5. Configuring Firewall (firewalld) ---"
 # AlmaLinux uses firewalld instead of UFW
-firewall-cmd --permanent --add-service=ssh
-firewall-cmd --set-default-zone=drop
+#firewall-cmd --permanent --add-service=ssh
+#firewall-cmd --set-default-zone=drop
+#firewall-cmd --reload
+
+echo "--- 5. Configuring Firewall (Hardware-Safe) ---"
+systemctl enable --now firewalld
+
+# 1. Get the active interface (like eno1)
+ACTIVE_IFACE=$(nmcli -t -f DEVICE,STATE device | grep ":connected" | cut -d: -f1 | head -n1)
+
+# 2. Add SSH to the public zone
+firewall-cmd --permanent --zone=public --add-service=ssh
+
+# 3. Assign the active interface to the public zone
+if [ -n "$ACTIVE_IFACE" ]; then
+    firewall-cmd --permanent --zone=public --add-interface="$ACTIVE_IFACE"
+fi
+
+# 4. Set public as default and reload
+firewall-cmd --set-default-zone=public
 firewall-cmd --reload
 
 #---
