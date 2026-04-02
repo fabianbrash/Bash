@@ -75,7 +75,9 @@ vncserver -kill :1 > /dev/null 2>&1
 rm -f /tmp/.X1-lock /tmp/.X11-unix/X1
 
 echo "--------------------------------------------------------"
-echo "Setup Complete!"
-echo "User: $(whoami)"
-echo "Launch with: vncserver -localhost no -geometry 1920x1080 :1"
+echo "SETUP COMPLETE!"
+echo "--------------------------------------------------------"
+echo "STEP 1: Run 'vncpasswd' to set your password."
+echo "STEP 2: Launch with: vncserver -localhost no -geometry 1920x1080 :1"
+echo "STEP 3: Point Cloudflare to tcp://$(hostname -I | awk '{print $1}'):5901"
 echo "--------------------------------------------------------"
