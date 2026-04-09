@@ -4,6 +4,7 @@
 CONF_PATH="/etc/nginx/sites-available/qwen_proxy"
 LINK_PATH="/etc/nginx/sites-enabled/qwen_proxy"
 DEFAULT_ENABLED="/etc/nginx/sites-enabled/default"
+BASHRC="$HOME/.bashrc"
 
 echo "🚀 Starting Nginx Proxy Setup..."
 
@@ -62,13 +63,26 @@ else
     exit 1
 fi
 
-# 4. Final Reminders
+# 4. Persistence for SSL Bypass
+echo "🔗 Adding SSL bypass to .bashrc..."
+LINE_TO_ADD="export NODE_TLS_REJECT_UNAUTHORIZED=0"
+if ! grep -Fxq "$LINE_TO_ADD" "$BASHRC"; then
+    echo "$LINE_TO_ADD" >> "$BASHRC"
+    echo "✅ Added to .bashrc"
+else
+    echo "ℹ️  Bypass already exists in .bashrc"
+fi
+
+# Apply to current session
+source "$BASHRC"
+
+# 5. Final Reminders
 echo "----------------------------------------------------------------"
 echo "✅ SETUP COMPLETE"
 echo "----------------------------------------------------------------"
-echo "⚠️  REMINDER 1: On the CLIENT (OpenClaw) machine, edit /etc/hosts:"
+echo "⚠️  REMINDER: On the CLIENT (OpenClaw) machine, edit /etc/hosts:"
 echo "   Add: <NGINX_VM_IP> models-qwen.genai-apps.fbclouddemo.us"
 echo ""
-echo "⚠️  REMINDER 2: Run this before using OpenClaw to bypass SSL trust issues:"
-echo "   export NODE_TLS_REJECT_UNAUTHORIZED=0"
+echo "💡 The SSL bypass is now permanent. Restart your terminal or run:"
+echo "   source ~/.bashrc"
 echo "----------------------------------------------------------------"
