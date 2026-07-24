@@ -2,7 +2,7 @@
 
 
 DOMAIN="*.mydomain.net"
-LOGDIR="./logs"
+LOGSDIR="./logs"
 CONFIGDIR="./config"
 WORKDIR="./work"
 EMAIL="me@me.com"
