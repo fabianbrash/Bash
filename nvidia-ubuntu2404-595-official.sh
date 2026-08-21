@@ -1,17 +1,14 @@
 #!/bin/bash
-#
-# NVIDIA driver + Fabric Manager installation for SXM/NVSwitch systems
-# Ubuntu 24.04 - Server driver branch (required for Fabric Manager / NVLink)
-#
-# Use this script for any node with NVSwitch-equipped GPUs (e.g. A100/H100 SXM).
-# Do NOT use ubuntu-drivers autoinstall on these nodes - it picks the "open"
-# driver flavor, which is incompatible with Fabric Manager and will cause
-# apt to remove your driver when fabricmanager is installed afterward.
-#
-
 set -e
 
-DRIVER_VERSION="595"   # update this to match what's available in your mirror
+DRIVER_VERSION="595"
+
+echo "==> Blacklisting nouveau..."
+cat <<EOF > /etc/modprobe.d/blacklist-nouveau.conf
+blacklist nouveau
+options nouveau modeset=0
+EOF
+update-initramfs -u
 
 echo "==> Updating package lists..."
 apt-get update
@@ -28,14 +25,7 @@ else
 fi
 
 echo "==> Installing build dependencies..."
-apt-get install -y \
-  build-essential \
-  dkms
-
-echo "==> Checking available server driver and fabric manager packages..."
-apt-cache search nvidia-headless-${DRIVER_VERSION}-server
-apt-cache search nvidia-utils-${DRIVER_VERSION}-server
-apt-cache search nvidia-fabricmanager-${DRIVER_VERSION}
+apt-get install -y build-essential dkms
 
 echo "==> Installing NVIDIA server driver (headless, with DKMS)..."
 apt-get install -y nvidia-headless-${DRIVER_VERSION}-server
