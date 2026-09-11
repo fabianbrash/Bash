@@ -7,9 +7,9 @@ CONFIGDIR="./config"
 WORKDIR="./work"
 EMAIL="me@me.com"
 
+
+### A couple of singular commands for testing
 #sudo certbot certonly -d myservice.domain.com --manual --preferred-challenges dns --agree-tos -m mail@mail.com
-
-
 #sudo certbot certonly -d ${DOMAIN} --manual --preferred-challenges dns --agree-tos -m me@me.com
 
 
